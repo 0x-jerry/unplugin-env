@@ -13,13 +13,14 @@ export default createUnplugin<Options | undefined>((options) => {
 
   return {
     name: 'unplugin-env',
+    async buildStart() {
+      await generateEnvDts()
+    },
     vite: {
-      async configResolved(config) {
-      const prefix = toArray(config.envPrefix || [`VITE_`])
+      configResolved(config) {
+        const prefix = toArray(config.envPrefix || [`VITE_`])
         opt.mode = config.mode
         opt.prefix = prefix
-
-        await generateEnvDts()
       },
     },
     webpack(compiler) {
