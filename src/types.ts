@@ -1,5 +1,9 @@
 export interface Options {
   /**
+   * generated env.ts file path, default is undefined
+   */
+  envFile?: string
+  /**
    * d.ts file path, default is `env.d.ts`
    */
   dts?: string

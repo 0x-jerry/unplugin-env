@@ -1,7 +1,7 @@
 import { createUnplugin } from 'unplugin'
 import type { Options } from './types'
 import { LoadEnvOptions, loadEnv, toArray } from './core'
-import { generateTypedefCode } from './core/generator'
+import { generateTypedefCode, generateTypescriptCode } from './core/generator'
 import { writeFile } from 'fs/promises'
 import { join } from 'path'
 
@@ -14,7 +14,7 @@ export default createUnplugin<Options | undefined>((options) => {
   return {
     name: 'unplugin-env',
     async buildStart() {
-      await generateEnvDts()
+      await generateFiles()
     },
     vite: {
       configResolved(config) {
@@ -28,7 +28,7 @@ export default createUnplugin<Options | undefined>((options) => {
     },
   }
 
-  async function generateEnvDts() {
+  async function generateFiles() {
     const dtsFile = options?.dts || `env.d.ts`
 
     const env = loadEnv(opt)
@@ -37,5 +37,13 @@ export default createUnplugin<Options | undefined>((options) => {
     const filePath = join(opt.cwd, dtsFile)
 
     await writeFile(filePath, code)
+
+    if (options?.envFile) {
+      const envFilePath = join(opt.cwd, options.envFile)
+
+      const code = generateTypescriptCode(env, opt.prefix)
+
+      await writeFile(envFilePath, code)
+    }
   }
 })

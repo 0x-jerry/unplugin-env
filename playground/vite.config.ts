@@ -7,7 +7,8 @@ export default defineConfig({
   plugins: [
     Inspect(),
     Env({
-      dts: 'env.d.ts',
+      dts: 'src/vite-env.d.ts',
+      envFile: 'src/env.ts',
     }),
   ],
 })
