@@ -75,32 +75,29 @@
   "scripts": {
     "build": "tsup",
     "dev": "tsup --watch src",
-    "build:fix": "esno scripts/postbuild.ts",
-    "lint": "eslint .",
+    "build:fix": "tsx scripts/postbuild.ts",
     "play": "npm -C playground run dev",
     "prepublishOnly": "npm run build",
     "release": "bumpp && npm publish",
-    "start": "esno src/index.ts",
+    "start": "tsx src/index.ts",
     "test": "vitest"
   },
   "dependencies": {
-    "unplugin": "^1.3.1"
+    "dotenv": "^16.3.1",
+    "unplugin": "^1.4.0"
   },
   "devDependencies": {
-    "@antfu/eslint-config": "^0.39.5",
-    "@types/node": "^18.16.16",
-    "bumpp": "^9.1.0",
-    "chalk": "^5.2.0",
-    "eslint": "^8.42.0",
-    "esno": "^0.16.3",
-    "fast-glob": "^3.2.12",
-    "nodemon": "^2.0.22",
-    "rimraf": "^5.0.1",
-    "rollup": "^3.23.1",
-    "tsup": "^6.7.0",
-    "typescript": "^5.1.3",
-    "vite": "^4.3.9",
-    "vitest": "^0.31.4",
-    "webpack": "^5.85.0"
+    "@types/node": "^20.4.9",
+    "bumpp": "^9.1.1",
+    "chalk": "^5.3.0",
+    "fast-glob": "^3.3.1",
+    "nodemon": "^3.0.1",
+    "rollup": "^3.28.0",
+    "tsup": "^7.2.0",
+    "tsx": "^3.12.7",
+    "typescript": "^5.1.6",
+    "vite": "^4.4.9",
+    "vitest": "^0.34.1",
+    "webpack": "^5.88.2"
   }
 }

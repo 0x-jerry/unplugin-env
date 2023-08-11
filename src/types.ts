@@ -1,3 +1,12 @@
 export interface Options {
-  // define your plugin options here
+  /**
+   * d.ts file path, default is `env.d.ts`
+   */
+  dts?: string
+  /**
+   * vite: default is vite [envPrefix](https://vitejs.dev/config/shared-options.html#envprefix) option.
+   *
+   * other: undefined
+   */
+  prefix?: string | string[]
 }
