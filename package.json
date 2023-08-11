@@ -1,18 +1,10 @@
 {
-  "name": "unplugin-starter",
+  "name": "unplugin-env",
   "type": "module",
   "version": "0.1.0",
   "packageManager": "pnpm@8.6.0",
   "description": "Register global imports on demand for Vite and Webpack",
   "license": "MIT",
-  "homepage": "https://github.com/antfu/unplugin-starter#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/antfu/unplugin-starter.git"
-  },
-  "bugs": {
-    "url": "https://github.com/antfu/unplugin-starter/issues"
-  },
   "keywords": [
     "unplugin",
     "vite",
