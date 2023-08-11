@@ -1,8 +1,13 @@
 import { defineConfig } from 'vite'
 import Inspect from 'vite-plugin-inspect'
-import Unplugin from '../src/vite'
+import Env from '../src/vite'
 
 export default defineConfig({
   envPrefix: ['TT_'],
-  plugins: [Inspect(), Unplugin()],
+  plugins: [
+    Inspect(),
+    Env({
+      dts: 'env.d.ts',
+    }),
+  ],
 })
