@@ -2,7 +2,7 @@
   "name": "@0x-jerry/unplugin-env",
   "type": "module",
   "version": "0.1.1",
-  "packageManager": "pnpm@8.6.0",
+  "packageManager": "pnpm@8.15.8",
   "description": "Auto generate typedef for env variables.",
   "license": "MIT",
   "keywords": [
