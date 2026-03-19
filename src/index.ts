@@ -1,11 +1,11 @@
-import { createUnplugin } from 'unplugin'
+import { createUnplugin, type UnpluginInstance } from 'unplugin'
 import type { Options } from './types'
-import { LoadEnvOptions, loadEnv, toArray } from './core'
+import { type LoadEnvOptions, loadEnv, toArray } from './core'
 import { generateTypedefCode, generateTypescriptCode } from './core/generator'
 import { writeFile } from 'fs/promises'
 import { join } from 'path'
 
-export default createUnplugin<Options | undefined>((options) => {
+const plugin: UnpluginInstance<Options | undefined> = createUnplugin((options) => {
   const opt: LoadEnvOptions = {
     cwd: process.cwd(),
     prefix: options?.prefix ? toArray(options.prefix) : undefined,
@@ -47,3 +47,5 @@ export default createUnplugin<Options | undefined>((options) => {
     }
   }
 })
+
+export default plugin

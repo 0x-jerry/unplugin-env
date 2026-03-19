@@ -1,1 +1,3 @@
-document.getElementById('app')!.innerHTML = '__UNPLUGIN__'
+import { C } from "./env";
+
+document.getElementById('app')!.innerHTML = C
